@@ -1,284 +1,377 @@
-{
-  "products": [
-    {
-      "id": 1,
-      "brand": "CeraVe",
-      "name": "Foaming Facial Cleanser",
-      "category": "cleanser",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/CeraVe_Foaming_Facial_Cleanser.png",
-      "description": "Gentle gel cleanser with ceramides, hyaluronic acid, and niacinamide. Deeply cleanses normal to oily skin, removing oil, dirt, and makeup without harming the barrier. Foaming, fragrance-free, non-comedogenic; leaves skin feeling refreshed and non-tight. Suitable for normal to oily and acne-prone skin."
-    },
-    {
-      "id": 2,
-      "brand": "CeraVe",
-      "name": "Hydrating Facial Cleanser",
-      "category": "cleanser",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/CeraVe_Hydrating_Facial_Cleanser.png",
-      "description": "Lotion-like, non-foaming cleanser for normal to dry skin. Ceramides and hyaluronic acid restore the barrier and lock in moisture. Gently removes impurities and makeup without stripping essential hydration. Fragrance-free, non-irritating, National Eczema Association approved; ideal for sensitive or dry skin."
-    },
-    {
-      "id": 3,
-      "brand": "CeraVe",
-      "name": "Moisturizing Cream",
-      "category": "moisturizer",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/CeraVe_Moisturizing_Cream.png",
-      "description": "Rich, velvety cream for face and body with 24-hour hydration for dry to very dry skin. Three ceramides plus MVE Technology release moisture continuously and restore the barrier. Hyaluronic acid locks in hydration. Fragrance-free, non-comedogenic; leaves skin smooth, soft, and protected."
-    },
-    {
-      "id": 4,
-      "brand": "CeraVe",
-      "name": "AM Facial Moisturizing Lotion SPF 30",
-      "category": "moisturizer",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/CeraVe_AM_Facial_Moisturizing_Lotion_SPF_30.jpg",
-      "description": "Oil-free daily lotion with broad-spectrum SPF 30. Ceramides support the barrier, hyaluronic acid hydrates, and niacinamide soothes. InVisibleZinc™ technology blocks UVA/UVB without a white cast. Lightweight, non-greasy, fragrance-free, non-comedogenic; absorbs quickly for all skin types."
-    },
-    {
-      "id": 5,
-      "brand": "CeraVe",
-      "name": "PM Facial Moisturizing Lotion",
-      "category": "moisturizer",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/CeraVe_PM_Facial_Moisturizing_Lotion.png",
-      "description": "Ultra-light, oil-free night lotion that hydrates and repairs overnight. Ceramides restore the barrier, hyaluronic acid retains moisture, and niacinamide soothes. MVE Technology provides continuous hydration. Fragrance-free, non-comedogenic; skin feels soft and refreshed by morning."
-    },
-    {
-      "id": 6,
-      "brand": "CeraVe",
-      "name": "Resurfacing Retinol Serum",
-      "category": "skincare",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/CeraVe_Resurfacing_Retinol_Serum.png",
-      "description": "Lightweight retinol gel serum to smooth texture and fade post-acne marks. Encapsulated retinol boosts cell turnover; licorice extract brightens; ceramides restore the barrier; niacinamide calms. Fast-absorbing, fragrance-free, non-comedogenic; refines pores and scars over time."
-    },
-    {
-      "id": 7,
-      "brand": "CeraVe",
-      "name": "Skin Renewing Vitamin C Serum",
-      "category": "skincare",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/CeraVe_Skin_Renewing_Vitamin_C_Serum.png",
-      "description": "Brightening serum with 10% vitamin C and ceramide complex to boost radiance and even tone. Hyaluronic acid plumps, vitamin B5 soothes. Improves clarity and fine lines for a luminous complexion. Fragrance-free and gentle for daily use."
-    },
-    {
-      "id": 8,
-      "brand": "CeraVe",
-      "name": "Eye Repair Cream",
-      "category": "skincare",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/CeraVe_Eye_Repair_Cream.png",
-      "description": "Nourishing eye cream to reduce dark circles and puffiness. Marine & Botanical Complex brightens; hyaluronic acid and ceramides hydrate; niacinamide soothes. Fast-absorbing, non-greasy, hypoallergenic, and ophthalmologist-tested; smooths and refreshes the eye area."
-    },
-    {
-      "id": 9,
-      "brand": "CeraVe",
-      "name": "Renewing SA Cleanser",
-      "category": "cleanser",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/CeraVe_Renewing_SA_Cleanser.png",
-      "description": "Exfoliating gel with salicylic acid to remove dead skin cells and soften texture. Ceramides support the barrier; hyaluronic acid retains moisture; niacinamide calms. Cleanses and smooths bumpy skin without drying. Fragrance-free; improves clarity and softness for uneven skin."
-    },
-    {
-      "id": 10,
-      "brand": "La Roche-Posay",
-      "name": "Toleriane Hydrating Gentle Cleanser",
-      "category": "cleanser",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/La_Roche-Posay_Toleriane_Hydrating_Gentle_Cleanser.png",
-      "description": "Creamy, soap-free cleanser for normal to dry, sensitive skin. Thermal water, ceramide-3, niacinamide, and glycerin soothe and maintain the barrier. Gently removes impurities without drying. Oil-free, fragrance-free, pH-balanced, allergy-tested; leaves skin comfortable and clean."
-    },
-    {
-      "id": 11,
-      "brand": "La Roche-Posay",
-      "name": "Anthelios Ultra-Light Fluid Face Sunscreen SPF 60",
-      "category": "skincare",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/La-Roche-Posay-Anthelios-Ultra-Light-Fluid-Face-Sunscreen-SPF-60.jpg",
-      "description": "Ultra-light SPF 60 fluid with Cell-Ox Shield® and antioxidants. Fast-absorbing, non-greasy, invisible finish; works under makeup. Water-resistant for 40 minutes; oil- and fragrance-free. Suitable for sensitive and oily skin without a white cast."
-    },
-    {
-      "id": 12,
-      "brand": "La Roche-Posay",
-      "name": "Effaclar Duo Dual Acne Treatment",
-      "category": "skincare",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/La-Roche-Posay-Effaclar-Duo-Dual-Acne-Treatment.jpg",
-      "description": "Acne treatment with 5.5% benzoyl peroxide and lipo-hydroxy acid. Spot or full-face lotion clears breakouts, prevents blemishes, and refines texture. Niacinamide soothes; oil-free, fast-absorbing; reduces acne and marks without over-drying."
-    },
-    {
-      "id": 13,
-      "brand": "Vichy",
-      "name": "Minéral 89 Hyaluronic Acid Booster",
-      "category": "skincare",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/Vichy_Min%C3%A9ral_89_Hyaluronic_Acid_Booster.png",
-      "description": "Lightweight gel booster with 89% volcanic mineral water and hyaluronic acid. Strengthens the barrier, provides plumping hydration with 15 minerals. Quick-absorbing, non-sticky; alcohol- and fragrance-free. Leaves skin fresh, soothed, and deeply hydrated."
-    },
-    {
-      "id": 14,
-      "brand": "Vichy",
-      "name": "Aqualia Thermal Rich Cream",
-      "category": "moisturizer",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/Vichy-Aqualia-Thermal-Rich-Cream.jpg",
-      "description": "Rich hydration cream for dry to very dry, sensitive skin. 97% natural-origin ingredients include hyaluronic acid, plant sugars, and mineral-rich water for 48-hour moisture. Soothes tightness, smooths fine lines; paraben-free, allergy-tested. Leaves skin velvety soft."
-    },
-    {
-      "id": 15,
-      "brand": "L'Oréal Paris",
-      "name": "Revitalift 1.5% Hyaluronic Acid Serum",
-      "category": "skincare",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/Loreal_Paris_Revitalift_1.5%25_Hyaluronic_Acid_Serum.png",
-      "description": "Lightweight serum with 1.5% hyaluronic acid (macro and micro) and vitamin C for multi-depth hydration. Instantly replenishes moisture, visibly plumps, and reduces fine lines. Fragrance-free, non-tacky; skin feels smoother and more youthful over time. Suitable for sensitive skin."
-    },
-    {
-      "id": 16,
-      "brand": "L'Oréal Paris",
-      "name": "Elvive Total Repair 5 Shampoo",
-      "category": "haircare",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/Loreal-Paris-Elvive-Total-Repair-5-Shampoo.png",
-      "description": "Repairing shampoo targeting split ends, weakness, roughness, dullness, and dehydration. Protein and ceramide concentrate cleanse and fortify hair fibers. Creamy lather smooths and adds shine without weight. With conditioner, delivers stronger, silkier, more manageable hair."
-    },
-    {
-      "id": 17,
-      "brand": "L'Oréal Paris",
-      "name": "Voluminous Original Mascara (Carbon Black)",
-      "category": "makeup",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/Loreal_Paris_Voluminous_Original_Mascara_(Carbon_Black).png",
-      "description": "Mascara that instantly builds 5× fuller lashes with panthenol and ceramide-R. Exclusive brush coats and separates without clumping. Rich Carbon Black pigment for dramatic depth. Ophthalmologist-tested, fragrance-free; soft, plush lashes removable with soap and water."
-    },
-    {
-      "id": 18,
-      "brand": "L'Oréal Paris",
-      "name": "Infallible Fresh Wear Foundation (24H)",
-      "category": "makeup",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/Loreal_Paris_Infallible_Fresh_Wear_Foundation_(24H).png",
-      "description": "Long-wear foundation with medium-to-full buildable coverage and a fresh matte finish. Oxygen technology and oil absorbers resist sweat, water, and transfer for 24 hours. Lightweight, non-comedogenic, enriched with antioxidants. Keeps skin even, smooth, and shine-free all day."
-    },
-    {
-      "id": 19,
-      "brand": "Maybelline",
-      "name": "Fit Me Matte + Poreless Foundation",
-      "category": "makeup",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/Maybelline_Fit_Me_Matte_+_Poreless_Foundation.png",
-      "description": "Liquid foundation for normal to oily skin with a natural matte, pore-blurring finish. Micro-powders absorb oil and minimize pores; medium and buildable coverage. Oil-free, non-comedogenic, available in 40 shades. Delivers a smooth, breathable, shine-controlled complexion."
-    },
-    {
-      "id": 20,
-      "brand": "Maybelline",
-      "name": "Lash Sensational Mascara",
-      "category": "makeup",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/Maybelline_Lash_Sensational_Mascara.png",
-      "description": "Mascara with an exclusive fanning brush for layered, full-fan volume and length. Ten bristle layers capture and separate every lash without clumping. Black washable formula builds volumized, supple lashes. Ophthalmologist-tested for sensitive eyes; dramatic yet clump-free effect."
-    },
-    {
-      "id": 21,
-      "brand": "Lancôme",
-      "name": "Advanced Génifique Youth Activating Serum",
-      "category": "skincare",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/Lancome_Advanced_Genifique_Youth_Activating_Serum.png",
-      "description": "Anti-aging serum with bifidus prebiotic, hyaluronic acid, and vitamin C. Boosts radiance, elasticity, and barrier in 7 days. Hydrates, plumps, and smooths fine lines; lightweight and fast-absorbing. Suitable for all skin types; skin looks firmer and more luminous."
-    },
-    {
-      "id": 22,
-      "brand": "Lancôme",
-      "name": "Teint Idole Ultra Wear Foundation",
-      "category": "makeup",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/Lancome-Teint-Idole-Ultra-Wear-Foundation.jpg",
-      "description": "24-hour wear foundation with buildable full coverage and natural matte finish. Perlite and silica absorb oil; EternalSoft polymers ensure comfort and no cakey feel. Transfer-resistant, oil- and fragrance-free; 50+ shades for inclusive matching. Leaves skin perfected and even."
-    },
-    {
-      "id": 23,
-      "brand": "Garnier",
-      "name": "SkinActive Micellar Cleansing Water",
-      "category": "cleanser",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/Garnier_SkinActive_Micellar_Cleansing_Water.png",
-      "description": "All-in-one micellar water that removes dirt, oil, and makeup without rinsing. Micelles act like magnets to lift impurities gently. Oil-, alcohol-, and fragrance-free; dermatologist- and ophthalmologist-tested. Leaves skin purified, soothed, and never tight."
-    },
-    {
-      "id": 24,
-      "brand": "Garnier",
-      "name": "Fructis Sleek & Shine Shampoo",
-      "category": "haircare",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/Garnier-Fructis-Sleek-%26-Shine-Shampoo.jpg",
-      "description": "Smoothing shampoo that tames frizz for up to 72 hours in humidity. Infused with argan oil and plant-based keratin protein to nourish and strengthen. Creamy lather cleanses while coating strands to seal cuticles. Leaves hair silky, shiny, and flyaway-free; use with conditioner for best results."
-    },
-    {
-      "id": 25,
-      "brand": "Kiehl's",
-      "name": "Ultra Facial Cream",
-      "category": "moisturizer",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/Kiehl%27s_Ultra_Facial_Cream.jpg",
-      "description": "Iconic daily moisturizer delivering lightweight 24-hour hydration with squalane and glacial glycoprotein. Strengthens the moisture barrier and protects against environmental stress. Fast-absorbing, non-greasy, fragrance-free; suitable for all skin types. Leaves skin noticeably softer and healthier-looking."
-    },
-    {
-      "id": 26,
-      "brand": "Kérastase",
-      "name": "Nutritive Bain Satin 1 Shampoo",
-      "category": "haircare",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/Kerastase-Nutritive-Bain-Satin-1-Shampoo.jpg",
-      "description": "Nourishing shampoo for normal to slightly dry hair with plant proteins and niacinamide. Irisome Complex infuses strands with glucose and lipids for softness and shine. Gently cleanses while protecting with antioxidant-rich iris rhizome extract. Leaves hair supple, detangled, and radiant."
-    },
-    {
-      "id": 27,
-      "brand": "SkinCeuticals",
-      "name": "C E Ferulic Antioxidant Serum",
-      "category": "skincare",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/SkinCeuticals_C_E_Ferulic_Antioxidant_Serum.jpg",
-      "description": "Daytime antioxidant serum with 15% vitamin C, 1% vitamin E, and 0.5% ferulic acid. Neutralizes free radicals from UV and pollution, offering 72-hour protection. Brightens, firms, and reduces fine lines for a youthful glow. Clinically proven to boost radiance and environmental defense."
-    },
-    {
-      "id": 28,
-      "brand": "Urban Decay",
-      "name": "Naked Eyeshadow Palette (Original)",
-      "category": "makeup",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/Urban-Decay-Naked-Eyeshadow-Palette-Original.jpg",
-      "description": "12-shade neutral palette with mattes, satins, and metallics. Pigment Infusion System™ delivers rich color payoff and buttery blendability. Long-lasting wear with a built-in mirror and double-ended brush. Versatile for day-to-night bronze looks."
-    },
-    {
-      "id": 29,
-      "brand": "Yves Saint Laurent",
-      "name": "Rouge Volupté Shine Lipstick Balm",
-      "category": "makeup",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/Yves-Saint-Laurent-Rouge-Volupte-Shine-Lipstick-Balm.jpg",
-      "description": "Oil-infused lipstick balm with 65% conditioning oils for up to 8-hour hydration. Creamy, lightweight texture offers buildable medium coverage and high-gloss shine. Nourishes lips while delivering vibrant color. Packaged in a signature YSL golden tube."
-    },
-    {
-      "id": 30,
-      "brand": "Redken",
-      "name": "All Soft Conditioner",
-      "category": "haircare",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/Redken_All_Soft_Conditioner.png",
-      "description": "Moisturizing conditioner with Moisture Complex and argan oil to detangle and soften hair. Smooths cuticles, reduces frizz, and boosts shine without weighing down strands. When used with the All Soft Shampoo, provides up to 15× more conditioning. Leaves hair silky, manageable, and healthy-looking."
-    },
-    {
-      "id": 31,
-      "brand": "L'Oréal Paris",
-      "name": "Excellence Crème Permanent Triple Care Hair Color",
-      "category": "hair color",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/Loreal-Paris-Excellence-Creme-Permanen-Triple-Hair-Color.jpg",
-      "description": "Triple Care Color routine with Pro-Keratine Complex delivers 100% gray coverage for all hair types and protects hair before, during, and after coloring for up to eight weeks. Includes an after-color shampoo to gently cleanse residue and reveal rich, radiant tone."
-    },
-    {
-      "id": 32,
-      "brand": "L'Oréal Paris",
-      "name": "Elnett Satin Extra Strong Hold Classic Hairspray",
-      "category": "hair styling",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/Loreal-Paris-Elnett-Satin-Extra-Strong-Hold-Classic-Hairspray.jpg",
-      "description": "Classic hairspray offering extra-strong, brushable hold that resists humidity and rain with just six ingredients. Leaves hair touchable and shiny without stiffness, stickiness, or residue, and features UV protection to preserve color."
-    },
-    {
-      "id": 33,
-      "brand": "L'Oréal Paris",
-      "name": "Men Expert Hydra Energetic After Shave Balm",
-      "category": "men's grooming",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/Loreal_Paris_Men_Expert_Hydra_Energetic_After_Shave_Balm.jpg",
-      "description": "Cooling after-shave balm that soothes razor burn, irritation, redness, and tightness while delivering long-lasting hydration. Its lightweight formula repairs and protects skin, leaving it comfortable and refreshed."
-    },
-    {
-      "id": 34,
-      "brand": "L'Oréal Paris",
-      "name": "RevitaLift Triple Power Broad Spectrum SPF 30 Sunscreen",
-      "category": "suncare",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/Loreal-Paris-RevitaLift-Triple-Power-Broad-Spectrum-SPF-30.jpg",
-      "description": "Anti-aging facial sunscreen with pro-retinol, vitamin C, and hyaluronic acid to reduce wrinkles, firm skin, and boost radiance within one week. Broad-spectrum SPF 30 shields against UVA and UVB rays."
-    },
-    {
-      "id": 35,
-      "brand": "Lancôme",
-      "name": "La Vie Est Belle Eau de Parfum",
-      "category": "fragrance",
-      "image": "https://cdn.jsdelivr.net/gh/GCA-Classroom/09-loreal-images/img/Lancome_La_Vie_Est_Belle_Eau_de_Parfum.jpg",
-      "description": "Radiant floral-gourmand fragrance featuring notes of iris, patchouli, vanilla, and spun sugar. Delivers a joyful, long-lasting scent that blends elegance with warmth."
-    }
-  ]
+/* =====================================================================
+   L'Oréal Routine Builder — script.js
+   Features:
+     ✅ Load & display all products from products.json
+     ✅ Product search (by name / brand / keyword)
+     ✅ Category filter (works alongside search)
+     ✅ Product selection / deselection with visual highlight
+     ✅ Product description modal
+     ✅ Selected products list with remove & clear all
+     ✅ localStorage persistence of selected products
+     ✅ Generate Routine via Cloudflare Worker → OpenAI
+     ✅ Chat bubble UI (user / AI distinct)
+     ✅ Conversation history (multi-turn context)
+     ✅ Typing indicator
+     ✅ System prompt restricts to beauty topics only
+   ===================================================================== */
+
+/* ── Configuration ────────────────────────────────────────────────── */
+
+// 🔧 REPLACE with your deployed Cloudflare Worker URL
+const WORKER_URL = "https://loreal-chatbot.cornisj.workers.dev/";
+
+const SYSTEM_PROMPT = `You are the L'Oréal Smart Beauty Advisor — an expert, warm, and elegantly professional beauty consultant for L'Oréal and its family of brands (CeraVe, La Roche-Posay, Lancôme, Garnier, Maybelline, Kiehl's, Kérastase, SkinCeuticals, Urban Decay, YSL Beauty, Redken, Vichy, and more).
+
+Your role:
+- Build personalized beauty routines using the selected products the user provides.
+- Explain how to use each product, in what order, AM vs PM if relevant.
+- Answer follow-up questions about the routine, ingredients, skin/hair types, and beauty tips.
+- Keep responses warm, concise, and actionable — use short paragraphs or numbered steps.
+- Use occasional beauty-relevant emojis (✨💄🌿💧) to stay friendly.
+- Remember the user's name if they share it.
+
+Restrictions:
+- ONLY answer questions related to: skincare, haircare, makeup, fragrance, beauty routines, L'Oréal products and brands, ingredient education, and beauty-related wellness.
+- If asked about ANYTHING unrelated (politics, sports, coding, food recipes, news, finance, travel, etc.), respond ONLY with:
+  "I'm your L'Oréal Beauty Advisor — I can only help with beauty routines and products! ✨ Is there something beauty-related I can assist with?"
+- Never discuss competitor brands in a negative light; redirect to L'Oréal alternatives when relevant.`;
+
+/* ── State ────────────────────────────────────────────────────────── */
+let allProducts = [];
+let selectedIds = new Set();
+let conversationHistory = [{ role: "system", content: SYSTEM_PROMPT }];
+let modalProductId = null;
+
+/* ── DOM refs ─────────────────────────────────────────────────────── */
+const productsContainer = document.getElementById("productsContainer");
+const noResults         = document.getElementById("noResults");
+const searchInput       = document.getElementById("searchInput");
+const categoryFilter    = document.getElementById("categoryFilter");
+const selectedList      = document.getElementById("selectedProductsList");
+const clearAllBtn       = document.getElementById("clearAllBtn");
+const generateBtn       = document.getElementById("generateRoutine");
+const chatForm          = document.getElementById("chatForm");
+const chatWindow        = document.getElementById("chatWindow");
+const userInput         = document.getElementById("userInput");
+const sendBtn           = document.getElementById("sendBtn");
+const descModal         = document.getElementById("descModal");
+const modalClose        = document.getElementById("modalClose");
+const modalImg          = document.getElementById("modalImg");
+const modalBrand        = document.getElementById("modalBrand");
+const modalName         = document.getElementById("modalName");
+const modalCategory     = document.getElementById("modalCategory");
+const modalDesc         = document.getElementById("modalDesc");
+const modalSelectBtn    = document.getElementById("modalSelectBtn");
+
+/* ── Boot ─────────────────────────────────────────────────────────── */
+(async function init() {
+  allProducts = await loadProducts();
+  loadSelectedFromStorage();
+  renderGrid(allProducts);
+  renderSelectedList();
+})();
+
+/* ── Load products.json ───────────────────────────────────────────── */
+async function loadProducts() {
+  try {
+    const res = await fetch("products.json");
+    const data = await res.json();
+    return data.products;
+  } catch (e) {
+    console.error("Failed to load products.json", e);
+    return [];
+  }
+}
+
+/* ── localStorage persistence ────────────────────────────────────── */
+function saveSelectedToStorage() {
+  localStorage.setItem("loreal_selected", JSON.stringify([...selectedIds]));
+}
+
+function loadSelectedFromStorage() {
+  try {
+    const saved = JSON.parse(localStorage.getItem("loreal_selected") || "[]");
+    selectedIds = new Set(saved.map(Number));
+  } catch {
+    selectedIds = new Set();
+  }
+}
+
+/* ── Filtering ────────────────────────────────────────────────────── */
+function getFilteredProducts() {
+  const query    = searchInput.value.trim().toLowerCase();
+  const category = categoryFilter.value;
+  return allProducts.filter(p => {
+    const matchCat  = !category || p.category === category;
+    const matchText = !query ||
+      p.name.toLowerCase().includes(query) ||
+      p.brand.toLowerCase().includes(query) ||
+      p.description.toLowerCase().includes(query);
+    return matchCat && matchText;
+  });
+}
+
+function applyFilters() {
+  const filtered = getFilteredProducts();
+  renderGrid(filtered);
+}
+
+searchInput.addEventListener("input", applyFilters);
+categoryFilter.addEventListener("change", applyFilters);
+
+/* ── Render product grid ──────────────────────────────────────────── */
+function renderGrid(products) {
+  if (products.length === 0) {
+    productsContainer.innerHTML = "";
+    noResults.classList.remove("hidden");
+    return;
+  }
+  noResults.classList.add("hidden");
+  productsContainer.innerHTML = products.map(p => productCardHTML(p)).join("");
+  // Attach events
+  productsContainer.querySelectorAll(".product-card").forEach(card => {
+    const id = Number(card.dataset.id);
+    card.addEventListener("click", e => {
+      if (e.target.closest(".info-btn")) return;
+      toggleSelect(id);
+    });
+    card.querySelector(".info-btn")?.addEventListener("click", e => {
+      e.stopPropagation();
+      openModal(id);
+    });
+  });
+}
+
+function productCardHTML(p) {
+  const isSelected = selectedIds.has(p.id);
+  return `
+    <div class="product-card${isSelected ? " selected" : ""}" data-id="${p.id}" role="button" tabindex="0" aria-pressed="${isSelected}">
+      <div class="product-img-wrap">
+        <img src="${p.image}" alt="${p.name}" loading="lazy" />
+      </div>
+      <div class="product-info">
+        <p class="product-brand">${p.brand}</p>
+        <p class="product-name">${p.name}</p>
+        <div class="product-card-actions">
+          <button class="info-btn" aria-label="View description for ${p.name}">View details</button>
+        </div>
+      </div>
+    </div>`;
+}
+
+/* ── Select / deselect ────────────────────────────────────────────── */
+function toggleSelect(id) {
+  if (selectedIds.has(id)) {
+    selectedIds.delete(id);
+  } else {
+    selectedIds.add(id);
+  }
+  saveSelectedToStorage();
+  // Update card visual without full re-render
+  const card = productsContainer.querySelector(`[data-id="${id}"]`);
+  if (card) {
+    const isNowSelected = selectedIds.has(id);
+    card.classList.toggle("selected", isNowSelected);
+    card.setAttribute("aria-pressed", isNowSelected);
+  }
+  renderSelectedList();
+  // Update modal button if open
+  if (modalProductId === id) updateModalBtn(id);
+}
+
+/* ── Render selected list ─────────────────────────────────────────── */
+function renderSelectedList() {
+  const selected = allProducts.filter(p => selectedIds.has(p.id));
+  generateBtn.disabled = selected.length === 0;
+  clearAllBtn.classList.toggle("hidden", selected.length === 0);
+
+  if (selected.length === 0) {
+    selectedList.innerHTML = `<p class="empty-selected">Click any product card to add it to your routine.</p>`;
+    return;
+  }
+
+  selectedList.innerHTML = selected.map(p => `
+    <div class="selected-pill" data-id="${p.id}">
+      <img src="${p.image}" alt="${p.name}" />
+      <span class="pill-name" title="${p.name}">${p.name}</span>
+      <button class="pill-remove" aria-label="Remove ${p.name}"><i class="fa-solid fa-xmark"></i></button>
+    </div>`).join("");
+
+  selectedList.querySelectorAll(".pill-remove").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const id = Number(btn.closest(".selected-pill").dataset.id);
+      toggleSelect(id);
+    });
+  });
+}
+
+/* Clear all */
+clearAllBtn.addEventListener("click", () => {
+  selectedIds.clear();
+  saveSelectedToStorage();
+  renderGrid(getFilteredProducts());
+  renderSelectedList();
+});
+
+/* ── Description Modal ────────────────────────────────────────────── */
+function openModal(id) {
+  const p = allProducts.find(p => p.id === id);
+  if (!p) return;
+  modalProductId = id;
+  modalImg.src     = p.image;
+  modalImg.alt     = p.name;
+  modalBrand.textContent    = p.brand;
+  modalName.textContent     = p.name;
+  modalCategory.textContent = p.category;
+  modalDesc.textContent     = p.description;
+  updateModalBtn(id);
+  descModal.classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+}
+
+function updateModalBtn(id) {
+  const isSelected = selectedIds.has(id);
+  modalSelectBtn.innerHTML = isSelected
+    ? `<i class="fa-solid fa-check"></i> Remove from Routine`
+    : `<i class="fa-solid fa-plus"></i> Add to Routine`;
+  modalSelectBtn.classList.toggle("is-selected", isSelected);
+}
+
+function closeModal() {
+  descModal.classList.add("hidden");
+  document.body.style.overflow = "";
+  modalProductId = null;
+}
+
+modalClose.addEventListener("click", closeModal);
+descModal.addEventListener("click", e => { if (e.target === descModal) closeModal(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+modalSelectBtn.addEventListener("click", () => {
+  if (modalProductId !== null) {
+    toggleSelect(modalProductId);
+    renderGrid(getFilteredProducts());
+  }
+});
+
+/* ── Generate Routine ─────────────────────────────────────────────── */
+generateBtn.addEventListener("click", async () => {
+  const selected = allProducts.filter(p => selectedIds.has(p.id));
+  if (selected.length === 0) return;
+
+  // Reset history for a fresh routine session
+  conversationHistory = [{ role: "system", content: SYSTEM_PROMPT }];
+
+  const productSummary = selected.map(p =>
+    `• ${p.brand} ${p.name} (${p.category}): ${p.description}`
+  ).join("\n");
+
+  const routinePrompt = `The user has selected these products for their routine:\n\n${productSummary}\n\nPlease create a clear, personalized beauty routine using these products. Organize by AM/PM where relevant, explain the order of application, and offer a brief tip for each product.`;
+
+  conversationHistory.push({ role: "user", content: routinePrompt });
+
+  generateBtn.disabled = true;
+  generateBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Generating…`;
+
+  // Clear chat and show user "card"
+  chatWindow.innerHTML = "";
+  appendUserMessage("✨ Generate my personalized routine");
+  const typingEl = showTyping();
+
+  try {
+    const reply = await fetchAI(conversationHistory);
+    removeTyping(typingEl);
+    conversationHistory.push({ role: "assistant", content: reply });
+    appendAIMessage(reply);
+  } catch (err) {
+    removeTyping(typingEl);
+    appendAIMessage("⚠️ Couldn't connect to the AI. Check your Cloudflare Worker URL in script.js.");
+    console.error(err);
+  }
+
+  generateBtn.disabled = selectedIds.size === 0;
+  generateBtn.innerHTML = `<i class="fa-solid fa-wand-magic-sparkles"></i> Generate My Routine`;
+});
+
+/* ── Chat follow-up ───────────────────────────────────────────────── */
+chatForm.addEventListener("submit", async e => {
+  e.preventDefault();
+  const text = userInput.value.trim();
+  if (!text) return;
+
+  appendUserMessage(text);
+  conversationHistory.push({ role: "user", content: text });
+  userInput.value = "";
+  sendBtn.disabled = true;
+
+  const typingEl = showTyping();
+  try {
+    const reply = await fetchAI(conversationHistory);
+    removeTyping(typingEl);
+    conversationHistory.push({ role: "assistant", content: reply });
+    appendAIMessage(reply);
+  } catch (err) {
+    removeTyping(typingEl);
+    appendAIMessage("⚠️ Something went wrong. Please try again.");
+    console.error(err);
+  }
+  sendBtn.disabled = false;
+  userInput.focus();
+});
+
+/* ── API call ─────────────────────────────────────────────────────── */
+async function fetchAI(messages) {
+  const res = await fetch(WORKER_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ messages })
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const data = await res.json();
+  return data.choices[0].message.content;
+}
+
+/* ── Chat UI helpers ──────────────────────────────────────────────── */
+function appendUserMessage(text) {
+  const row = document.createElement("div");
+  row.className = "msg-row user";
+  row.innerHTML = `<div class="msg-label">You</div><div class="bubble">${escapeHTML(text)}</div>`;
+  chatWindow.appendChild(row);
+  scrollChat();
+}
+
+function appendAIMessage(text) {
+  const row = document.createElement("div");
+  row.className = "msg-row ai";
+  row.innerHTML = `<div class="msg-label">L'Oréal Advisor</div><div class="bubble">${formatText(text)}</div>`;
+  chatWindow.appendChild(row);
+  scrollChat();
+}
+
+function showTyping() {
+  const wrap = document.createElement("div");
+  wrap.className = "msg-row ai typing-row";
+  wrap.innerHTML = `<div class="msg-label">L'Oréal Advisor</div><div class="typing-indicator"><span></span><span></span><span></span></div>`;
+  chatWindow.appendChild(wrap);
+  scrollChat();
+  return wrap;
+}
+
+function removeTyping(el) {
+  if (el?.parentNode) el.parentNode.removeChild(el);
+}
+
+function scrollChat() {
+  chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+function escapeHTML(str) {
+  return str.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+function formatText(text) {
+  return escapeHTML(text)
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*(.+?)\*/g, "<em>$1</em>")
+    .replace(/\n/g, "<br>");
 }
