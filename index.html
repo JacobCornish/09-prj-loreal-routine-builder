@@ -24,91 +24,144 @@
       </header>
 
       <!-- Search + Filter Bar -->
-      <div class="controls-bar">
-        <div class="search-wrap">
-          <i class="fa-solid fa-magnifying-glass search-icon"></i>
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="Search products…"
-            autocomplete="off"
-          />
-        </div>
-        <div class="filter-wrap">
-          <i class="fa-solid fa-sliders filter-icon"></i>
-          <select id="categoryFilter">
-            <option value="">All Categories</option>
-            <option value="cleanser">Cleanser</option>
-            <option value="moisturizer">Moisturizer</option>
-            <option value="skincare">Skincare</option>
-            <option value="haircare">Haircare</option>
-            <option value="makeup">Makeup</option>
-            <option value="hair color">Hair Color</option>
-            <option value="hair styling">Hair Styling</option>
-            <option value="men's grooming">Men's Grooming</option>
-            <option value="suncare">Suncare</option>
-            <option value="fragrance">Fragrance</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Product Grid -->
-      <div id="productsContainer" class="products-grid"></div>
-      <div id="noResults" class="no-results hidden">
-        No products match your search.
-      </div>
-
-      <!-- Selected Products -->
-      <section class="selected-section">
-        <div class="selected-header">
-          <h2 class="section-title">Selected Products</h2>
-          <button id="clearAllBtn" class="clear-all-btn hidden">
-            Clear All
-          </button>
-        </div>
-        <div id="selectedProductsList" class="selected-list">
-          <p class="empty-selected">
-            Click any product card to add it to your routine.
-          </p>
-        </div>
-        <button id="generateRoutine" class="generate-btn" disabled>
-          <i class="fa-solid fa-wand-magic-sparkles"></i>
-          Generate My Routine
-        </button>
-      </section>
-
-      <!-- Chat / Routine Area -->
-      <section class="chatbox">
-        <div class="chatbox-header">
-          <h2 class="section-title">About Your Routine</h2>
-          <p class="chatbox-sub">
-            Get personalized advice and answers about your beauty routine
-          </p>
-        </div>
-        <div id="chatWindow" class="chat-window">
-          <div class="chat-welcome">
-            <p>
-              Select products above and click
-              <strong>Generate My Routine</strong> to get started. Then ask me
-              anything! ✨
-            </p>
+      <main class="main-content">
+        <div class="controls-bar">
+          <div class="search-wrap">
+            <label for="searchInput" class="visually-hidden"
+              >Search products</label
+            >
+            <i
+              class="fa-solid fa-magnifying-glass search-icon"
+              aria-hidden="true"
+            ></i>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search products…"
+              autocomplete="off"
+            />
+          </div>
+          <div class="filter-wrap">
+            <label for="categoryFilter" class="visually-hidden"
+              >Filter by category</label
+            >
+            <i class="fa-solid fa-sliders filter-icon" aria-hidden="true"></i>
+            <select id="categoryFilter">
+              <option value="">All Categories</option>
+              <option value="cleanser">Cleanser</option>
+              <option value="moisturizer">Moisturizer</option>
+              <option value="skincare">Skincare</option>
+              <option value="haircare">Haircare</option>
+              <option value="makeup">Makeup</option>
+              <option value="hair color">Hair Color</option>
+              <option value="hair styling">Hair Styling</option>
+              <option value="men's grooming">Men's Grooming</option>
+              <option value="suncare">Suncare</option>
+              <option value="fragrance">Fragrance</option>
+            </select>
+          </div>
+          <div class="goal-wrap">
+            <label for="goalSelect" class="visually-hidden">Routine goal</label>
+            <i class="fa-solid fa-bullseye goal-icon" aria-hidden="true"></i>
+            <select id="goalSelect">
+              <option value="">Choose a skincare goal</option>
+              <option value="help with acne">Help with acne</option>
+              <option value="hydrate dry skin">Hydrate dry skin</option>
+              <option value="get ready in the morning">
+                Get ready in the morning
+              </option>
+              <option value="repair skin barrier">
+                Repair the skin barrier
+              </option>
+              <option value="even skin tone">Even skin tone</option>
+              <option value="protect from sun">
+                Protect from sun exposure
+              </option>
+              <option value="reduce signs of aging">
+                Reduce signs of aging
+              </option>
+            </select>
           </div>
         </div>
-        <form id="chatForm" class="chat-form">
-          <label for="userInput" class="visually-hidden">Message</label>
-          <input
-            id="userInput"
-            name="userInput"
-            type="text"
-            placeholder="Ask about your routine…"
-            autocomplete="off"
-            required
-          />
-          <button type="submit" id="sendBtn" aria-label="Send">
-            <i class="fa-solid fa-paper-plane"></i>
+        <p class="goal-note">
+          This choice helps shape your routine guidance; search and category
+          controls still filter product cards.
+        </p>
+
+        <!-- Product Grid -->
+        <div id="productsContainer" class="products-grid"></div>
+        <div
+          id="noResults"
+          class="no-results hidden"
+          role="status"
+          aria-live="polite"
+        >
+          No products match your search.
+        </div>
+
+        <!-- Selected Products -->
+        <section class="selected-section">
+          <div class="selected-header">
+            <h2 class="section-title">Selected Products</h2>
+            <button type="button" id="clearAllBtn" class="clear-all-btn hidden">
+              Clear All
+            </button>
+          </div>
+          <div id="selectedProductsList" class="selected-list">
+            <p class="empty-selected">
+              Click any product card to add it to your routine.
+            </p>
+          </div>
+          <button
+            type="button"
+            id="generateRoutine"
+            class="generate-btn"
+            disabled
+          >
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            Generate My Routine
           </button>
-        </form>
-      </section>
+        </section>
+
+        <!-- Chat / Routine Area -->
+        <section class="chatbox">
+          <div class="chatbox-header">
+            <h2 class="section-title">About Your Routine</h2>
+            <p class="chatbox-sub">
+              Get personalized advice and answers about your beauty routine
+            </p>
+          </div>
+          <div
+            id="chatWindow"
+            class="chat-window"
+            role="log"
+            aria-live="polite"
+            aria-atomic="false"
+          >
+            <div class="chat-welcome">
+              <p>
+                Select products above and click
+                <strong>Generate My Routine</strong> to get started. Then ask me
+                anything.
+              </p>
+            </div>
+          </div>
+          <form id="chatForm" class="chat-form">
+            <label for="userInput" class="visually-hidden">Message</label>
+            <input
+              id="userInput"
+              name="userInput"
+              type="text"
+              placeholder="Ask about your routine…"
+              autocomplete="off"
+              required
+            />
+            <button type="submit" id="sendBtn" aria-label="Send">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </section>
+      </main>
 
       <!-- Description Modal -->
       <div
@@ -116,20 +169,28 @@
         class="modal-overlay hidden"
         role="dialog"
         aria-modal="true"
+        aria-labelledby="modalName"
+        aria-describedby="modalDesc"
+        aria-hidden="true"
       >
         <div class="modal-card">
-          <button class="modal-close" id="modalClose" aria-label="Close">
+          <button
+            type="button"
+            class="modal-close"
+            id="modalClose"
+            aria-label="Close"
+          >
             <i class="fa-solid fa-xmark"></i>
           </button>
           <div class="modal-img-wrap">
-            <img id="modalImg" src="" alt="" />
+            <img id="modalImg" src="about:blank" alt="Product image" />
           </div>
           <div class="modal-body">
             <p class="modal-brand" id="modalBrand"></p>
             <h3 class="modal-name" id="modalName"></h3>
             <span class="modal-category" id="modalCategory"></span>
             <p class="modal-desc" id="modalDesc"></p>
-            <button class="modal-select-btn" id="modalSelectBtn">
+            <button type="button" class="modal-select-btn" id="modalSelectBtn">
               <i class="fa-solid fa-plus"></i> Add to Routine
             </button>
           </div>
@@ -140,17 +201,24 @@
       <footer class="site-footer">
         <p class="footer-copy">&copy; 2025 L'Oréal. All rights reserved.</p>
         <nav class="footer-nav">
-          <a href="https://www.loreal.com/en/privacy-policy/" target="_blank"
+          <a
+            href="https://www.loreal.com/en/privacy-policy/"
+            target="_blank"
+            rel="noreferrer noopener"
             >Privacy Policy</a
           >
           <span class="sep">·</span>
           <a
             href="https://www.loreal.com/en/terms-and-conditions/"
             target="_blank"
+            rel="noreferrer noopener"
             >Terms of Use</a
           >
           <span class="sep">·</span>
-          <a href="https://www.loreal.com/en/contact-us/" target="_blank"
+          <a
+            href="https://www.loreal.com/en/contact-us/"
+            target="_blank"
+            rel="noreferrer noopener"
             >Contact</a
           >
         </nav>

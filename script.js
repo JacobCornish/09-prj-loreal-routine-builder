@@ -20,6 +20,9 @@
 // 🔧 REPLACE with your deployed Cloudflare Worker URL
 const WORKER_URL = "https://loreal-chatbot.cornisj.workers.dev/";
 
+const DEFAULT_IMAGE_FALLBACK =
+  "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='360'%3E%3Crect width='100%25' height='100%25' fill='%23faf8f4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-size='14' fill='%23666'%3EImage%20unavailable%3C/text%3E%3C/svg%3E";
+
 const SYSTEM_PROMPT = `You are the L'Oréal Smart Beauty Advisor — an expert, warm, and elegantly professional beauty consultant for L'Oréal and its family of brands (CeraVe, La Roche-Posay, Lancôme, Garnier, Maybelline, Kiehl's, Kérastase, SkinCeuticals, Urban Decay, YSL Beauty, Redken, Vichy, and more).
 
 Your role:
@@ -27,48 +30,52 @@ Your role:
 - Explain how to use each product, in what order, AM vs PM if relevant.
 - Answer follow-up questions about the routine, ingredients, skin/hair types, and beauty tips.
 - Keep responses warm, concise, and actionable — use short paragraphs or numbered steps.
-- Use occasional beauty-relevant emojis (✨💄🌿💧) to stay friendly.
+- Use a warm, professional tone to stay friendly.
 - Remember the user's name if they share it.
 
 Restrictions:
 - ONLY answer questions related to: skincare, haircare, makeup, fragrance, beauty routines, L'Oréal products and brands, ingredient education, and beauty-related wellness.
 - If asked about ANYTHING unrelated (politics, sports, coding, food recipes, news, finance, travel, etc.), respond ONLY with:
-  "I'm your L'Oréal Beauty Advisor — I can only help with beauty routines and products! ✨ Is there something beauty-related I can assist with?"
+  "I'm your L'Oréal Beauty Advisor — I can only help with beauty routines and products. Is there something beauty-related I can assist with?"
 - Never discuss competitor brands in a negative light; redirect to L'Oréal alternatives when relevant.`;
 
 /* ── State ────────────────────────────────────────────────────────── */
 let allProducts = [];
 let selectedIds = new Set();
+let routineGoal = "";
 let conversationHistory = [{ role: "system", content: SYSTEM_PROMPT }];
 let modalProductId = null;
 
 /* ── DOM refs ─────────────────────────────────────────────────────── */
 const productsContainer = document.getElementById("productsContainer");
-const noResults         = document.getElementById("noResults");
-const searchInput       = document.getElementById("searchInput");
-const categoryFilter    = document.getElementById("categoryFilter");
-const selectedList      = document.getElementById("selectedProductsList");
-const clearAllBtn       = document.getElementById("clearAllBtn");
-const generateBtn       = document.getElementById("generateRoutine");
-const chatForm          = document.getElementById("chatForm");
-const chatWindow        = document.getElementById("chatWindow");
-const userInput         = document.getElementById("userInput");
-const sendBtn           = document.getElementById("sendBtn");
-const descModal         = document.getElementById("descModal");
-const modalClose        = document.getElementById("modalClose");
-const modalImg          = document.getElementById("modalImg");
-const modalBrand        = document.getElementById("modalBrand");
-const modalName         = document.getElementById("modalName");
-const modalCategory     = document.getElementById("modalCategory");
-const modalDesc         = document.getElementById("modalDesc");
-const modalSelectBtn    = document.getElementById("modalSelectBtn");
+const noResults = document.getElementById("noResults");
+const searchInput = document.getElementById("searchInput");
+const categoryFilter = document.getElementById("categoryFilter");
+const goalSelect = document.getElementById("goalSelect");
+const selectedList = document.getElementById("selectedProductsList");
+const clearAllBtn = document.getElementById("clearAllBtn");
+const generateBtn = document.getElementById("generateRoutine");
+const chatForm = document.getElementById("chatForm");
+const chatWindow = document.getElementById("chatWindow");
+const userInput = document.getElementById("userInput");
+const sendBtn = document.getElementById("sendBtn");
+const descModal = document.getElementById("descModal");
+const modalClose = document.getElementById("modalClose");
+const modalImg = document.getElementById("modalImg");
+const modalBrand = document.getElementById("modalBrand");
+const modalName = document.getElementById("modalName");
+const modalCategory = document.getElementById("modalCategory");
+const modalDesc = document.getElementById("modalDesc");
+const modalSelectBtn = document.getElementById("modalSelectBtn");
 
 /* ── Boot ─────────────────────────────────────────────────────────── */
 (async function init() {
   allProducts = await loadProducts();
   loadSelectedFromStorage();
+  loadGoalFromStorage();
   renderGrid(allProducts);
   renderSelectedList();
+  updateGenerateButtonState();
 })();
 
 /* ── Load products.json ───────────────────────────────────────────── */
@@ -97,17 +104,110 @@ function loadSelectedFromStorage() {
   }
 }
 
+function saveGoalToStorage() {
+  localStorage.setItem("loreal_goal", routineGoal);
+}
+
+function loadGoalFromStorage() {
+  routineGoal = localStorage.getItem("loreal_goal") || "";
+  if (goalSelect) goalSelect.value = routineGoal;
+}
+
+function handleImageFallback(img) {
+  if (!img || img.dataset.fallbackSet) return;
+  img.dataset.fallbackSet = "true";
+  img.src = DEFAULT_IMAGE_FALLBACK;
+  img.alt = img.alt || "Product image unavailable";
+}
+
+function goalMatchesProduct(product, goal) {
+  const text =
+    `${product.brand} ${product.name} ${product.category} ${product.description}`.toLowerCase();
+  const keywords = {
+    "help with acne": [
+      "acne",
+      "salicylic",
+      "benzoyl",
+      "breakout",
+      "blemish",
+      "oil-free",
+      "acne-prone",
+    ],
+    "hydrate dry skin": [
+      "hydrate",
+      "hydrating",
+      "hydration",
+      "moisturizer",
+      "cream",
+      "hyaluronic",
+      "barrier",
+      "rich",
+    ],
+    "get ready in the morning": [
+      "am ",
+      "spf",
+      "sunscreen",
+      "lightweight",
+      "daily",
+      "morning",
+    ],
+    "repair skin barrier": [
+      "barrier",
+      "ceramide",
+      "restore",
+      "repair",
+      "niacinamide",
+      "strengthen",
+    ],
+    "even skin tone": [
+      "even",
+      "tone",
+      "brighten",
+      "vitamin c",
+      "radiance",
+      "clarity",
+      "dark spot",
+      "hyperpigmentation",
+    ],
+    "protect from sun": [
+      "spf",
+      "sunscreen",
+      "uva",
+      "uvb",
+      "sun",
+      "broad-spectrum",
+      "protect",
+    ],
+    "reduce signs of aging": [
+      "anti-aging",
+      "youth",
+      "fine line",
+      "wrinkle",
+      "firming",
+      "revitalift",
+      "serum",
+      "aging",
+    ],
+  };
+
+  const terms = keywords[goal] || goal.split(" ");
+  return terms.some((term) => text.includes(term));
+}
+
 /* ── Filtering ────────────────────────────────────────────────────── */
 function getFilteredProducts() {
-  const query    = searchInput.value.trim().toLowerCase();
+  const query = searchInput.value.trim().toLowerCase();
   const category = categoryFilter.value;
-  return allProducts.filter(p => {
-    const matchCat  = !category || p.category === category;
-    const matchText = !query ||
+  const goal = routineGoal.trim().toLowerCase();
+  return allProducts.filter((p) => {
+    const matchCat = !category || p.category === category;
+    const matchText =
+      !query ||
       p.name.toLowerCase().includes(query) ||
       p.brand.toLowerCase().includes(query) ||
       p.description.toLowerCase().includes(query);
-    return matchCat && matchText;
+    const matchGoal = !goal || goalMatchesProduct(p, goal);
+    return matchCat && matchText && matchGoal;
   });
 }
 
@@ -118,6 +218,14 @@ function applyFilters() {
 
 searchInput.addEventListener("input", applyFilters);
 categoryFilter.addEventListener("change", applyFilters);
+if (goalSelect) {
+  goalSelect.addEventListener("change", () => {
+    routineGoal = goalSelect.value;
+    saveGoalToStorage();
+    applyFilters();
+    updateGenerateButtonState();
+  });
+}
 
 /* ── Render product grid ──────────────────────────────────────────── */
 function renderGrid(products) {
@@ -127,17 +235,35 @@ function renderGrid(products) {
     return;
   }
   noResults.classList.add("hidden");
-  productsContainer.innerHTML = products.map(p => productCardHTML(p)).join("");
+  productsContainer.innerHTML = products
+    .map((p) => productCardHTML(p))
+    .join("");
   // Attach events
-  productsContainer.querySelectorAll(".product-card").forEach(card => {
+  productsContainer.querySelectorAll(".product-card").forEach((card) => {
     const id = Number(card.dataset.id);
-    card.addEventListener("click", e => {
+    card.addEventListener("click", (e) => {
       if (e.target.closest(".info-btn")) return;
       toggleSelect(id);
     });
-    card.querySelector(".info-btn")?.addEventListener("click", e => {
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        toggleSelect(id);
+      }
+    });
+    card.querySelector("img")?.addEventListener("error", (event) => {
+      handleImageFallback(event.target);
+    });
+    const infoBtn = card.querySelector(".info-btn");
+    infoBtn?.addEventListener("click", (e) => {
       e.stopPropagation();
       openModal(id);
+    });
+    infoBtn?.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openModal(id);
+      }
     });
   });
 }
@@ -153,7 +279,7 @@ function productCardHTML(p) {
         <p class="product-brand">${p.brand}</p>
         <p class="product-name">${p.name}</p>
         <div class="product-card-actions">
-          <button class="info-btn" aria-label="View description for ${p.name}">View details</button>
+          <span role="button" tabindex="0" class="info-btn" aria-label="View description for ${p.name}">View details</span>
         </div>
       </div>
     </div>`;
@@ -181,23 +307,27 @@ function toggleSelect(id) {
 
 /* ── Render selected list ─────────────────────────────────────────── */
 function renderSelectedList() {
-  const selected = allProducts.filter(p => selectedIds.has(p.id));
-  generateBtn.disabled = selected.length === 0;
+  const selected = allProducts.filter((p) => selectedIds.has(p.id));
   clearAllBtn.classList.toggle("hidden", selected.length === 0);
+  updateGenerateButtonState();
 
   if (selected.length === 0) {
     selectedList.innerHTML = `<p class="empty-selected">Click any product card to add it to your routine.</p>`;
     return;
   }
 
-  selectedList.innerHTML = selected.map(p => `
+  selectedList.innerHTML = selected
+    .map(
+      (p) => `
     <div class="selected-pill" data-id="${p.id}">
       <img src="${p.image}" alt="${p.name}" />
       <span class="pill-name" title="${p.name}">${p.name}</span>
-      <button class="pill-remove" aria-label="Remove ${p.name}"><i class="fa-solid fa-xmark"></i></button>
-    </div>`).join("");
+      <button type="button" class="pill-remove" aria-label="Remove ${p.name}"><i class="fa-solid fa-xmark"></i></button>
+    </div>`,
+    )
+    .join("");
 
-  selectedList.querySelectorAll(".pill-remove").forEach(btn => {
+  selectedList.querySelectorAll(".pill-remove").forEach((btn) => {
     btn.addEventListener("click", () => {
       const id = Number(btn.closest(".selected-pill").dataset.id);
       toggleSelect(id);
@@ -215,18 +345,21 @@ clearAllBtn.addEventListener("click", () => {
 
 /* ── Description Modal ────────────────────────────────────────────── */
 function openModal(id) {
-  const p = allProducts.find(p => p.id === id);
+  const p = allProducts.find((p) => p.id === id);
   if (!p) return;
   modalProductId = id;
-  modalImg.src     = p.image;
-  modalImg.alt     = p.name;
-  modalBrand.textContent    = p.brand;
-  modalName.textContent     = p.name;
+  modalImg.src = p.image;
+  modalImg.alt = p.name;
+  modalImg.onerror = () => handleImageFallback(modalImg);
+  modalBrand.textContent = p.brand;
+  modalName.textContent = p.name;
   modalCategory.textContent = p.category;
-  modalDesc.textContent     = p.description;
+  modalDesc.textContent = p.description;
   updateModalBtn(id);
   descModal.classList.remove("hidden");
+  descModal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
+  modalClose.focus();
 }
 
 function updateModalBtn(id) {
@@ -239,13 +372,18 @@ function updateModalBtn(id) {
 
 function closeModal() {
   descModal.classList.add("hidden");
+  descModal.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
   modalProductId = null;
 }
 
 modalClose.addEventListener("click", closeModal);
-descModal.addEventListener("click", e => { if (e.target === descModal) closeModal(); });
-document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+descModal.addEventListener("click", (e) => {
+  if (e.target === descModal) closeModal();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeModal();
+});
 
 modalSelectBtn.addEventListener("click", () => {
   if (modalProductId !== null) {
@@ -256,17 +394,18 @@ modalSelectBtn.addEventListener("click", () => {
 
 /* ── Generate Routine ─────────────────────────────────────────────── */
 generateBtn.addEventListener("click", async () => {
-  const selected = allProducts.filter(p => selectedIds.has(p.id));
+  const selected = allProducts.filter((p) => selectedIds.has(p.id));
   if (selected.length === 0) return;
 
   // Reset history for a fresh routine session
   conversationHistory = [{ role: "system", content: SYSTEM_PROMPT }];
 
-  const productSummary = selected.map(p =>
-    `• ${p.brand} ${p.name} (${p.category}): ${p.description}`
-  ).join("\n");
+  const productSummary = selected
+    .map((p) => `• ${p.brand} ${p.name} (${p.category}): ${p.description}`)
+    .join("\n");
 
-  const routinePrompt = `The user has selected these products for their routine:\n\n${productSummary}\n\nPlease create a clear, personalized beauty routine using these products. Organize by AM/PM where relevant, explain the order of application, and offer a brief tip for each product.`;
+  const goalText = routineGoal ? `The user wants to ${routineGoal}.\n\n` : "";
+  const routinePrompt = `${goalText}The user has selected these products for their routine:\n\n${productSummary}${productSummary ? "\n\n" : ""}Please create a clear, personalized beauty routine using these products. Organize by AM/PM where relevant, explain the order of application, and offer a brief tip for each product.`;
 
   conversationHistory.push({ role: "user", content: routinePrompt });
 
@@ -275,7 +414,7 @@ generateBtn.addEventListener("click", async () => {
 
   // Clear chat and show user "card"
   chatWindow.innerHTML = "";
-  appendUserMessage("✨ Generate my personalized routine");
+  appendUserMessage("Generate my personalized routine");
   const typingEl = showTyping();
 
   try {
@@ -285,16 +424,18 @@ generateBtn.addEventListener("click", async () => {
     appendAIMessage(reply);
   } catch (err) {
     removeTyping(typingEl);
-    appendAIMessage("⚠️ Couldn't connect to the AI. Check your Cloudflare Worker URL in script.js.");
+    appendAIMessage(
+      "Couldn't connect to the AI. Check your Cloudflare Worker URL in script.js.",
+    );
     console.error(err);
   }
 
-  generateBtn.disabled = selectedIds.size === 0;
+  generateBtn.disabled = selectedIds.size === 0 && !routineGoal;
   generateBtn.innerHTML = `<i class="fa-solid fa-wand-magic-sparkles"></i> Generate My Routine`;
 });
 
 /* ── Chat follow-up ───────────────────────────────────────────────── */
-chatForm.addEventListener("submit", async e => {
+chatForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const text = userInput.value.trim();
   if (!text) return;
@@ -312,7 +453,7 @@ chatForm.addEventListener("submit", async e => {
     appendAIMessage(reply);
   } catch (err) {
     removeTyping(typingEl);
-    appendAIMessage("⚠️ Something went wrong. Please try again.");
+    appendAIMessage("Something went wrong. Please try again.");
     console.error(err);
   }
   sendBtn.disabled = false;
@@ -324,7 +465,7 @@ async function fetchAI(messages) {
   const res = await fetch(WORKER_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ messages })
+    body: JSON.stringify({ messages }),
   });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const data = await res.json();
@@ -332,6 +473,11 @@ async function fetchAI(messages) {
 }
 
 /* ── Chat UI helpers ──────────────────────────────────────────────── */
+function updateGenerateButtonState() {
+  const selected = allProducts.filter((p) => selectedIds.has(p.id));
+  generateBtn.disabled = selected.length === 0;
+}
+
 function appendUserMessage(text) {
   const row = document.createElement("div");
   row.className = "msg-row user";
@@ -366,7 +512,7 @@ function scrollChat() {
 }
 
 function escapeHTML(str) {
-  return str.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
 function formatText(text) {
